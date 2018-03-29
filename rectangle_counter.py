@@ -3,8 +3,8 @@ rectangles_representation = [[1, 1, 1, 1, 1, 1, 1],
                              [1, 1, 3, 0, 0, 1, 1],
                              [1, 1, 1, 1, 1, 1, 1]]
 
-test = [[1,1,1],
-        [1,1,1]]
+test = [[1,1],
+        [1,1]]
 
 dimension_rows = len(rectangles_representation)
 dimension_cols = len(rectangles_representation[0])
@@ -15,7 +15,7 @@ def check_for_full_blocks_only(submatrix, matrix, row_index, col_index, subdimen
         for c in range(subdimension_col):
             try:
                 if(((matrix[row_index+r][col_index-1]) == 0 and (matrix[row_index+r][col_index]) == 0)
-                    or (matrix[row_index+r][col_index-1]) > 1):
+                    or ((matrix[row_index+r][col_index-1]) > 1 and (matrix[row_index+r+1][col_index-1]) != 0)):
                     return False
             except:
                 pass
@@ -26,7 +26,7 @@ def check_for_full_blocks_only(submatrix, matrix, row_index, col_index, subdimen
                 pass
             try:
                 if(((matrix[row_index-1][col_index+c]) == 0 and (matrix[row_index][col_index+c]) == 0)
-                    or (matrix[row_index-1][col_index+c]) > 1):
+                    or ((matrix[row_index-1][col_index+c]) > 1 and (matrix[row_index-1][col_index+c + 1]) != 0)):
                     return False
             except:
                 pass
