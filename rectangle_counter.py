@@ -3,8 +3,8 @@ rectangles_representation = [[1, 1, 1, 1, 1, 1, 1],
                              [1, 1, 3, 0, 0, 1, 1],
                              [1, 1, 1, 1, 1, 1, 1]]
 
-test = [[1,1],
-        [1,1]]
+test = [[1,1,1],
+        [1,1,1]]
 
 dimension_rows = len(rectangles_representation)
 dimension_cols = len(rectangles_representation[0])
@@ -53,5 +53,5 @@ def count_rectangles(subdimension_row, subdimension_col, matrix):
 total_rectangles = 0
 for r in range(dimension_rows):
     for c in range(dimension_cols):
-        total_rectangles += count_rectangles(r+1, c+1, test)
+        total_rectangles += count_rectangles(r+1, c+1, rectangles_representation)
 print (total_rectangles)
