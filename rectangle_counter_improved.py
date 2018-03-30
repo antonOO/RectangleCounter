@@ -1,3 +1,4 @@
+import numpy as np
 
 rectangles_representation = [[1, 1, 1, 1, 1, 1, 1],
                              [1, 1, 3, 0, 0, 1, 1],
@@ -23,12 +24,9 @@ def find_num_incorrect_rectangles(matrix):
                         mistake_count+=(count - len(matrix) - 1)
                     else:
                         mistake_count+=count
-            #    if (matrix[r][c] > 1 or matrix[r][c] == 0) and matrix[r+1][c] == 0:
-                #    mistake_count+=(len(matrix[r][0])*len(matrix[:r+1]))
-            #    if matrix[r][c] == 0 and (matrix[r-1][c] == 0 or matrix[r-1][c] > 0):
-                #    mistake_count+=(len(matrix[r][0])*len(matrix[r:]))
             except:
                 pass
     return mistake_count
 
-print(max_number_of_rectangles_on_grid - find_num_incorrect_rectangles(rectangles_representation))
+
+print(max_number_of_rectangles_on_grid - find_num_incorrect_rectangles(rectangles_representation) - find_num_incorrect_rectangles(np.transpose(rectangles_representation)))
